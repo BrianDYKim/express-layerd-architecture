@@ -14,6 +14,7 @@ const commonErrors = require('./misc/commonErrors');
 const utils = require('./misc/util');
 
 const {userRouter} = require('./user/router');
+const {boardRouter} = require('./board/router');
 
 async function createApp() {
     // mySql에 연결
@@ -55,6 +56,7 @@ async function createApp() {
 
     // api router 등록
     expressApp.use("/api/v1/users", userRouter);
+    expressApp.use("/api/v1/boards", boardRouter);
 
     // api Router에 해당하는 요청 외에 들어온 경우 처리
     expressApp.use((req, res, next) => {
